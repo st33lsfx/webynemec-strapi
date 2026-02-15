@@ -19,21 +19,17 @@
     "./",
     "./**/*.ts",
     "./**/*.js",
-    "src/**/*.json"
+    "src/**/*.json",
+    "dist/**/*.js"
   ],
 
   "exclude": [
     "node_modules/",
     "build/",
-    "dist/",
     ".cache/",
     ".tmp/",
-
-    // Do not include admin files in the server compilation
     "src/admin/",
-    // Do not include test files
     "**/*.test.*",
-    // Do not include plugins in the server compilation
     "src/plugins/**"
   ]
 }
