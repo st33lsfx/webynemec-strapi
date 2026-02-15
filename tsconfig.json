@@ -1,5 +1,4 @@
 {
-  "extends": "@strapi/typescript-utils/tsconfigs/server",
   "compilerOptions": {
     "module": "CommonJS",
     "moduleResolution": "Node",

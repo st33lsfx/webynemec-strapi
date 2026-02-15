@@ -14,13 +14,18 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Database 
         client: 'postgres',
         connection: {
           connectionString: databaseUrl,
+          host: env('DATABASE_HOST', 'localhost'),
+          port: env.int('DATABASE_PORT', 5432),
+          database: env('DATABASE_NAME', 'strapi'),
+          user: env('DATABASE_USERNAME', 'strapi'),
+          password: env('DATABASE_PASSWORD', 'strapi'),
           schema: env('DATABASE_SCHEMA', 'public'),
           ssl: env.bool('DATABASE_SSL', false) ? { rejectUnauthorized: true } : false,
         },
         pool: { min: env.int('DATABASE_POOL_MIN', 0), max: env.int('DATABASE_POOL_MAX', 10) },
         acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
       },
-    };
+    } as Core.Config.Database;
   }
 
   if (client === 'sqlite') {
@@ -33,7 +38,7 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Database 
         useNullAsDefault: true,
         acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
       },
-    };
+    } as unknown as Core.Config.Database;
   }
 
   throw new Error(`Invalid DATABASE_CLIENT: "${client}". Use postgres or sqlite.`);
