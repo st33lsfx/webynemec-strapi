@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_links",
+  "info": {
+    "displayName": "Odkaz",
+    "icon": "link",
+    "description": "Odkaz s popiskem a URL"
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

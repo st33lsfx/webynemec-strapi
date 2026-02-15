@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contacts",
+  "info": {
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "Kontaktní formulář",
+    "description": "Odeslané poptávky z webu"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string"
+    },
+    "message": {
+      "type": "text",
+      "required": true
+    },
+    "source": {
+      "type": "enumeration",
+      "enum": ["contact", "modal"],
+      "default": "contact"
+    },
+    "planName": {
+      "type": "string"
+    },
+    "projectType": {
+      "type": "string"
+    },
+    "budget": {
+      "type": "string"
+    },
+    "currentUrl": {
+      "type": "string"
+    },
+    "pluginLevel": {
+      "type": "string"
+    },
+    "pluginAddons": {
+      "type": "text"
+    },
+    "pluginTotal": {
+      "type": "integer"
+    }
+  }
+}

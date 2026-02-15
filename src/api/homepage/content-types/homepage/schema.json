@@ -1,0 +1,61 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "singularName": "homepage",
+    "pluralName": "homepages",
+    "displayName": "Domovská stránka",
+    "description": "Obsah domovské stránky"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "heroTitle1": {
+      "type": "string",
+      "default": "Tvořím rychlé a"
+    },
+    "heroTitle2": {
+      "type": "string",
+      "default": "SEO-optimalizované weby."
+    },
+    "heroDescription": {
+      "type": "text",
+      "default": "Pomáhám firmám a podnikatelům růst díky moderním webovým stránkám a aplikacím na míru. Rychle, spolehlivě a s důrazem na detail."
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "heroStats": {
+      "type": "json",
+      "default": [{"val": "50+", "label": "Projektů"}, {"val": "5 let", "label": "Zkušeností"}, {"val": "100%", "label": "Spokojenost"}]
+    },
+    "aboutTitle": {
+      "type": "string",
+      "default": "Designer, co píše kód."
+    },
+    "aboutSubtitle": {
+      "type": "string",
+      "default": "Developer s citem."
+    },
+    "aboutText1": {
+      "type": "text",
+      "default": "Nestavím jen weby. Tvořím digitální produkty, které mají hlavu a patu. Věřím v Swiss Design – v čistotu, mřížku a perfektní typografii."
+    },
+    "aboutText2": {
+      "type": "text",
+      "default": "Jako Full-stack developer (React, WordPress, Strapi, Node.js) nekončím u hezkého obrázku. Moje weby jsou rychlé, bezpečné a připravené škálovat."
+    },
+    "aboutImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "techStack": {
+      "type": "json",
+      "default": ["React", "Next.js", "TypeScript", "Tailwind", "Node.js", "WordPress", "Strapi", "Figma", "GSAP"]
+    }
+  }
+}

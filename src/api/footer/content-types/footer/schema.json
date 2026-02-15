@@ -1,0 +1,59 @@
+{
+  "kind": "singleType",
+  "collectionName": "footers",
+  "info": {
+    "singularName": "footer",
+    "pluralName": "footers",
+    "displayName": "Patička",
+    "description": "Obsah patičky webu – menu, kontakt, sociální sítě"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "brandName": {
+      "type": "string",
+      "default": "Webynemec"
+    },
+    "brandDescription": {
+      "type": "text",
+      "default": "Tvořím moderní a výkonné weby, které pomáhají firmám růst."
+    },
+    "menuItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.link"
+    },
+    "servicesItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.link"
+    },
+    "contactEmail": {
+      "type": "string",
+      "default": "info@webynemec.cz"
+    },
+    "contactPhone": {
+      "type": "string",
+      "default": "+420 123 456 789"
+    },
+    "contactAddress": {
+      "type": "string",
+      "default": "Praha, Česká republika"
+    },
+    "socialLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "footer.social-link"
+    },
+    "copyrightText": {
+      "type": "string",
+      "default": "Ondřej Němec. Všechna práva vyhrazena."
+    },
+    "legalLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.link"
+    }
+  }
+}

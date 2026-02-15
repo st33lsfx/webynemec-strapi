@@ -1,0 +1,57 @@
+{
+  "kind": "singleType",
+  "collectionName": "globals",
+  "info": {
+    "singularName": "global",
+    "pluralName": "globals",
+    "displayName": "Globální nastavení",
+    "description": "SEO a globální nastavení webu"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "siteName": {
+      "type": "string",
+      "default": "Ondřej Němec"
+    },
+    "siteDescription": {
+      "type": "text",
+      "default": "Web developer specializující se na WordPress, React, Strapi a vlastní WordPress pluginy. Tvořím rychlé, SEO-optimalizované weby."
+    },
+    "siteKeywords": {
+      "type": "string",
+      "default": "Web Developer, WordPress, React, Strapi, WordPress pluginy, Frontend, SEO, Ondřej Němec"
+    },
+    "ogImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "favicon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "googleTagId": {
+      "type": "string",
+      "default": ""
+    },
+    "showPluginsSection": {
+      "type": "boolean",
+      "default": false
+    },
+    "pluginsSectionMessage": {
+      "type": "text",
+      "default": "Vytváříme pluginy na míru. Máte nápad na vlastní WordPress plugin? Napište nám."
+    },
+    "pluginsCustomPrice": {
+      "type": "string",
+      "default": "od 15 000 Kč"
+    },
+    "pluginsConfigurator": {
+      "type": "json",
+      "default": {}
+    }
+  }
+}

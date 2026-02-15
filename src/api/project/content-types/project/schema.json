@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "Projekt",
+    "description": "Vybrané projekty pro portfolio"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "client": {
+      "type": "string",
+      "required": true
+    },
+    "year": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "hexColor": {
+      "type": "string",
+      "default": "#0f172a"
+    },
+    "textColor": {
+      "type": "enumeration",
+      "enum": ["text-white", "text-slate-900"],
+      "default": "text-white"
+    },
+    "url": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

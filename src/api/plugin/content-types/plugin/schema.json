@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "plugins",
+  "info": {
+    "singularName": "plugin",
+    "pluralName": "plugins",
+    "displayName": "WordPress Plugin",
+    "description": "Vlastní WordPress pluginy"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "tagline": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "popular": {
+      "type": "boolean",
+      "default": false
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["available", "development", "planned"],
+      "default": "available"
+    },
+    "features": {
+      "type": "json",
+      "default": []
+    },
+    "priceMonthly": {
+      "type": "integer",
+      "default": 0
+    },
+    "priceYearly": {
+      "type": "integer",
+      "default": 0
+    },
+    "priceLifetime": {
+      "type": "integer",
+      "default": 0
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_footer_social_links",
+  "info": {
+    "displayName": "Sociální odkaz",
+    "icon": "share",
+    "description": "Odkaz na sociální síť"
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "type": "string",
+      "default": "IG"
+    }
+  }
+}
