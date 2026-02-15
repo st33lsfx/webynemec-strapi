@@ -1,13 +1,7 @@
-'use strict';
+import path from 'path';
 
-const path = require('path');
-
-/**
- * Database config - .js verze pro načtení při strapi start.
- * Config loader načítá pouze .js a .json, .ts se kompiluje do dist/.
- */
-module.exports = ({ env }) => {
-  const client = String(env('DATABASE_CLIENT', 'sqlite')).toLowerCase().trim();
+export default ({ env }) => {
+  const client = env('DATABASE_CLIENT', 'sqlite');
 
   const connections = {
     mysql: {
@@ -31,32 +25,32 @@ module.exports = ({ env }) => {
         database: env('DATABASE_NAME', 'strapi'),
         user: env('DATABASE_USERNAME', 'strapi'),
         password: env('DATABASE_PASSWORD', 'strapi'),
+        ssl: env.bool('DATABASE_SSL', env('DATABASE_URL')?.includes('railway') || false) && {
+          rejectUnauthorized: env.bool('DATABASE_SSL_REJECT_UNAUTHORIZED', true),
+        },
         schema: env('DATABASE_SCHEMA', 'public'),
-        ssl: env.bool('DATABASE_SSL', false) ? { rejectUnauthorized: true } : false,
       },
-      pool: { min: env.int('DATABASE_POOL_MIN', 0), max: env.int('DATABASE_POOL_MAX', 10) },
+      pool: {
+        min: env.int('DATABASE_POOL_MIN', 0),
+        max: env.int('DATABASE_POOL_MAX', 10),
+        acquireTimeoutMillis: env.int('DATABASE_ACQUIRE_TIMEOUT', 60000),
+        createTimeoutMillis: env.int('DATABASE_CREATE_TIMEOUT', 30000),
+        idleTimeoutMillis: env.int('DATABASE_IDLE_TIMEOUT', 30000),
+        reapIntervalMillis: env.int('DATABASE_REAP_INTERVAL', 1000),
+      },
     },
     sqlite: {
       connection: {
-        filename: path.join(__dirname, '..', env('DATABASE_FILENAME', '.tmp/data.db')),
+        filename: path.join(__dirname, '..', '..', env('DATABASE_FILENAME', '.tmp/data.db')),
       },
       useNullAsDefault: true,
     },
   };
 
-  if (client === 'postgres' && !env('DATABASE_URL')) {
-    throw new Error('DATABASE_URL is required when DATABASE_CLIENT=postgres. Check Railway Variables.');
-  }
-
-  const connectionConfig = connections[client];
-  if (!connectionConfig) {
-    throw new Error(`Invalid DATABASE_CLIENT: "${client}". Use mysql, postgres, or sqlite.`);
-  }
-
   return {
     connection: {
       client,
-      ...connectionConfig,
+      ...connections[client],
       acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
     },
   };
