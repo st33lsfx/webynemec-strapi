@@ -29,7 +29,7 @@ RUN npm ci --omit=dev
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/.strapi ./.strapi
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/tsconfig.json ./tsconfig.json
+COPY --from=builder /app/tsconfig.runtime.json ./tsconfig.json
 
 EXPOSE 1337
 
