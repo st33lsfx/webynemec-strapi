@@ -4,12 +4,12 @@
   "private": true,
   "description": "A Strapi application",
   "scripts": {
-    "build": "strapi build && cp config/database.js dist/config/ 2>/dev/null || true",
+    "build": "strapi build && mkdir -p dist/config && cp config/database.js dist/config/",
     "console": "strapi console",
     "deploy": "strapi deploy",
     "dev": "strapi develop",
     "develop": "strapi develop",
-    "start": "strapi start",
+    "start": "node server.js",
     "strapi": "strapi",
     "upgrade": "npx @strapi/upgrade latest",
     "upgrade:dry": "npx @strapi/upgrade latest --dry"
