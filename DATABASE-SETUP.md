@@ -1,13 +1,16 @@
 # Nastavení databáze – prázdná databáze
 
-## 1. Railway – PostgreSQL
+## 1. Railway – PostgreSQL (POVINNÉ)
+
+**Bez PostgreSQL se data mažou při každém restartu** (Strapi by používal SQLite).
 
 1. V Railway projektu: **+ New** → **Database** → **PostgreSQL**
-2. Po vytvoření: klikni na PostgreSQL službu → **Variables** → zkopíruj `DATABASE_URL`
-3. V Strapi službě: **Variables** → přidej:
+2. Klikni na PostgreSQL službu → **Connect** → vyber Strapi službu (nebo **Variables** → zkopíruj `DATABASE_URL`)
+3. Ve Strapi službě: **Variables** → přidej/zkontroluj:
    - `DATABASE_CLIENT` = `postgres`
-   - `DATABASE_URL` = hodnota z PostgreSQL (nebo použij **Connect** a Railway propojí proměnné)
+   - `DATABASE_URL` = `${{Postgres.DATABASE_URL}}` (nebo skutečná URL – název služby může být jiný)
 4. **Redeploy** Strapi služby
+5. V logách ověř, že není chyba připojení k databázi
 
 ## 2. První spuštění
 
