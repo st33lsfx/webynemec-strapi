@@ -16,12 +16,10 @@
     "rootDir": "."
   },
   "include": [
-    "config/**/*.ts",
-    "config/**/*.js",
-    "src/**/*.ts",
-    "src/**/*.js",
-    "src/**/*.json",
-    "types/**/*.ts"
+    "./",
+    "./**/*.ts",
+    "./**/*.js",
+    "src/**/*.json"
   ],
 
   "exclude": [

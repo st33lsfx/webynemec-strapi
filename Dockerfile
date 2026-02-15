@@ -5,14 +5,10 @@ RUN apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips
 
 WORKDIR /app
 
-COPY . .
-
-# Podpora monorepo: pokud existuje webynemec-strapi, zkopírovat obsah do /app
-RUN if [ -d webynemec-strapi ] && [ -f webynemec-strapi/package.json ]; then \
-      cp -r webynemec-strapi/. . && rm -rf webynemec-strapi webynemec; \
-    fi
-
+COPY package*.json ./
 RUN npm ci
+
+COPY . .
 
 ENV NODE_OPTIONS=--max-old-space-size=4096
 RUN npm run build
