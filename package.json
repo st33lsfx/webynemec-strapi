@@ -4,7 +4,7 @@
   "private": true,
   "description": "A Strapi application",
   "scripts": {
-    "build": "strapi build",
+    "build": "strapi build && cp config/database.js dist/config/ 2>/dev/null || true",
     "console": "strapi console",
     "deploy": "strapi deploy",
     "dev": "strapi develop",
