@@ -12,7 +12,18 @@ const corsOrigins = [
 const config: Core.Config.Middlewares = [
   'strapi::logger',
   'strapi::errors',
-  'strapi::security',
+  {
+    name: 'strapi::security',
+    config: {
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          'img-src': ["'self'", 'data:', 'blob:', 'market-assets.strapi.io', 'res.cloudinary.com'],
+          'media-src': ["'self'", 'data:', 'blob:', 'market-assets.strapi.io', 'res.cloudinary.com'],
+        },
+      },
+    },
+  },
   { name: 'global::rate-limit', config: { max: 60, windowMs: 60000 } },
   {
     name: 'strapi::cors',
