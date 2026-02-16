@@ -1,6 +1,9 @@
 import type { Core } from '@strapi/strapi';
 
 const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Admin => ({
+  preview: {
+    enabled: false, // Vypnuto – 404 na /content-manager/preview/url; pro zapnutí viz docs.strapi.io/dev-docs/preview
+  },
   auth: {
     secret: env('ADMIN_JWT_SECRET'),
   },
